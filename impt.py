@@ -14,10 +14,24 @@ def key_vals(path,keys):
     vals = [None] * len(keys)
     iter = 0
     for i in keys:
-        print(las_fl[i])
         vals[iter]=las_fl[i]
         iter=iter+1
     return vals
+
+def mk_lib(mypath,keys):
+    names=impt_nm(mypath)
+    dnry = {}
+    ignr = 0
+    for i in names:
+        path = mypath+'\\'+i+'.las'
+        try:
+            dnry[i] = key_vals(path,keys)
+        except:
+            ignr+=1
+            print("ignoring "+i)
+            print(ignr)
+            
+    return dnry
 
 def main():
     #note r is needed to force raw string
@@ -31,13 +45,10 @@ def main():
    # print(t)
     #print(y)
     test2 = key_vals(mypath+'\\105622382751170.las',t)
+        
+    keys = ['POR','GR']
     
-    
-    
-    
-    keys = ['POR','GR','RHOB']
-    
-    
+    x = mk_lib(mypath,keys)    
     
     
 main()
