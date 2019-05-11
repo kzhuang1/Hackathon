@@ -50,5 +50,10 @@ def main():
     
     x = mk_lib(mypath,keys)    
     
-    
+    for key, value in x.items() :
+        print (key)
+        
+    print(x['105622382751170'])
 main()
+
+
